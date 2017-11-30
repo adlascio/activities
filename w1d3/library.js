@@ -20,7 +20,28 @@ var library = {
                       name: "Other Playlist",
                       tracks: ["t03"]
                     }
-             }
+             },
+  printPlaylists: function() {
+    for (var prop in this.playlists){
+      var playlist = this.playlists[prop];
+      console.log(`${playlist.id} : ${playlist.name} - ${playlist.tracks.length} tracks`);
+    }
+  },
+  printTracks: function() {
+    for (var prop in this.tracks){
+      var tracks = this.tracks[prop];
+      console.log(`${tracks.id}: ${tracks.name} by ${tracks.artist} (${tracks.album}) `);
+    }
+  },
+  printPlaylist: function(playlistId) {
+    var playlist = this.playlists[playlistId];
+    console.log(`${playlist.id}: ${playlist.name} - ${playlist.tracks.length} tracks`);
+    for (var i = 0; i < playlist.tracks.length; i++){
+      var trackIdPos = playlist.tracks[i];
+      var trackId = this.tracks[trackIdPos];
+      console.log(`${trackIdPos}: ${trackId.name} by ${trackId.artist} (${trackId.album})`);
+    }
+  }
 }
 
 // FUNCTIONS TO IMPLEMENT:
@@ -29,17 +50,8 @@ var library = {
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 
-var printPlaylists = function (library) {
+//library.printPlaylists(); WORKING!
 
-  for (var prop in library['playlists']){
-    console.log(library['playlists'][prop]['id'] + ":",
-                library['playlists'][prop]['name'], "-",
-                library['playlists'][prop]['tracks'].length, "tracks");
-  }
-
-}
-
-//printPlaylists(library); WORKING!
 
 //*****************************************************************************
 
@@ -48,18 +60,7 @@ var printPlaylists = function (library) {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 
-var printTracks = function (library) {
-
-  for (var prop in library['tracks']) {
-    console.log(library['tracks'][prop]['id'] + ":",
-                library['tracks'][prop]['name'],
-                "by",
-                library['tracks'][prop]['artist'],
-                "(" + library['tracks'][prop]['album'] + ")");
-  }
-}
-
-//printTracks(library); WORKING!
+//library.printTracks(); WORKING!
 
 //********************************************************************
 
@@ -68,24 +69,7 @@ var printTracks = function (library) {
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 
-var printPlaylist = function (playlistId) {
-  console.log(library['playlists'][playlistId]['id'] + ":",
-                library['playlists'][playlistId]['name'], "-",
-                library['playlists'][playlistId]['tracks'].length, "tracks");
-
-  for (var i = 0; i < library['playlists'][playlistId]['tracks'].length; i++) {
-    var trackId = library['playlists'][playlistId]['tracks'][i];
-    console.log(trackId + ":",
-                library['tracks'][trackId]['name'],
-                "by", library['tracks'][trackId]['artist'],
-                "(" + library['tracks'][trackId]['album'] + ")");
-  }
-
-
-}
-
-//printPlaylist('p01'); WORKING!
-//printPlaylist('p02'); WORKING!
+//library.printPlaylist('p01'); WORKING!
 
 //************************************************************************
 
@@ -153,3 +137,23 @@ var addPlaylist = function (name) {
 var printSearchResults = function(query) {
 
 }
+
+
+// var obj = {};
+
+// obj.a = 1;
+// obj['a'] = 1;
+
+// var key = 'a';
+
+// obj.key = 2;
+// obj[key] = 1;
+
+/*
+
+{
+  a: 1,
+  key: 1
+}
+
+*/
