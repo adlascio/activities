@@ -27,11 +27,11 @@ var library = {
       console.log(`${playlist.id} : ${playlist.name} - ${playlist.tracks.length} tracks`);
     }
   },
-  printTracks: function() {
-    for (var prop in this.tracks){
-      var tracks = this.tracks[prop];
-      console.log(`${tracks.id}: ${tracks.name} by ${tracks.artist} (${tracks.album}) `);
-    }
+ printTracks: function() {
+//    for (var prop in this.tracks){
+//      var tracks = this.tracks[prop];
+//      console.log(`${tracks.id}: ${tracks.name} by ${tracks.artist} (${tracks.album}) `);
+//    }
   },
   printPlaylist: function(playlistId) {
     var playlist = this.playlists[playlistId];
@@ -50,11 +50,9 @@ var library = {
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 
-//library.printPlaylists(); WORKING!
-
+//library.printPlaylists();
 
 //*****************************************************************************
-
 // prints a list of all tracks, in the form:
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
@@ -63,7 +61,6 @@ var library = {
 //library.printTracks(); WORKING!
 
 //********************************************************************
-
 // prints a list of tracks for a given playlist, in the form:
 // p01: Coding Music - 2 tracks
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
@@ -72,7 +69,6 @@ var library = {
 //library.printPlaylist('p01'); WORKING!
 
 //************************************************************************
-
 // adds an existing track to an existing playlist
 
 var addTrackToPlaylist = function (trackId, playlistId) {
@@ -83,7 +79,6 @@ var addTrackToPlaylist = function (trackId, playlistId) {
 //printPlaylist('p01');
 
 //**************************************************************************
-
 // generates a unique id
 // (use this for addTrack and addPlaylist)
 
@@ -91,9 +86,7 @@ var uid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
 
-
 //*****************************************************************************
-
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
@@ -110,7 +103,6 @@ var addTrack = function (name, artist, album) {
 //printTracks(library);
 
 //******************************************************************************************************
-
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
@@ -125,9 +117,7 @@ var addPlaylist = function (name) {
 //addPlaylist('New Playlist'); WORKING!
 //printPlaylists(library);
 
-
 //********************************************************************************************************
-
 // STRETCH:
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
@@ -137,23 +127,14 @@ var addPlaylist = function (name) {
 var printSearchResults = function(query) {
 
 }
+//callback
+
+//var collection = array;
+//result = collection.forEach(function(item){
+//  console.log(item)
+//});
 
 
-// var obj = {};
 
-// obj.a = 1;
-// obj['a'] = 1;
+//filter
 
-// var key = 'a';
-
-// obj.key = 2;
-// obj[key] = 1;
-
-/*
-
-{
-  a: 1,
-  key: 1
-}
-
-*/
