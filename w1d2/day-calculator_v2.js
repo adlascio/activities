@@ -31,8 +31,8 @@ function calculateDayInYear(date) {
   }
 
   function daysInFeb(year) {
-  console.log("year", year)
-  console.log(isLeapYear(year));
+    console.log("year", year);
+    console.log(isLeapYear(year));
     if (isLeapYear(year)){
       return 29;
     }
@@ -40,7 +40,7 @@ function calculateDayInYear(date) {
   }
 
   function isLeapYear(year) {
-    console.log("year ", year)
+    console.log("year ", year);
     return isMultiple(year, 400) || !isMultiple(year, 100) && isMultiple(year, 4);
   }
 }
